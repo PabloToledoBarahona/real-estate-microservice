@@ -54,4 +54,30 @@ public class VisitController : ControllerBase
         var visits = await _logic.FilterVisitsAsync(userId, from, to, propertyType, transactionType);
         return Ok(visits);
     }
+
+    [HttpGet("stats/{propertyId}")]
+    [Authorize]
+    public async Task<IActionResult> GetVisitStats(Guid propertyId)
+    {
+        var daily = await _logic.GetDailyVisitStats(propertyId);
+        var zones = await _logic.GetZoneVisitStats(propertyId);
+
+        return Ok(new { daily, zones });
+    }
+
+    [HttpGet("recommendations")]
+    [Authorize]
+    public async Task<IActionResult> GetRecommendations()
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
+            return Unauthorized(new { message = "No se pudo identificar al usuario autenticado." });
+
+        var criteria = await _logic.GetRecommendationCriteriaAsync(userId);
+
+        if (criteria is null)
+            return Ok(new { message = "No hay suficientes datos para generar recomendaciones." });
+
+        return Ok(criteria);
+    }
 }

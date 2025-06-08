@@ -27,6 +27,8 @@ public class VisitLogic
         };
 
         await _repo.AddVisitAsync(visit);
+        await _repo.IncrementDailyVisitAsync(visit.IdProperty, visit.VisitTs);
+        await _repo.IncrementZoneVisitAsync(visit.City, visit.IdProperty, visit.VisitTs);
     }
 
     public async Task<List<Visit>> GetVisitsAsync(Guid userId)
@@ -37,5 +39,55 @@ public class VisitLogic
     public async Task<List<Visit>> FilterVisitsAsync(Guid userId, DateTime? from, DateTime? to, string? propertyType, string? transactionType)
     {
         return await _repo.FilterVisitsByUserAsync(userId, from, to, propertyType, transactionType);
+    }
+
+    public async Task<List<VisitDailyStat>> GetDailyVisitStats(Guid propertyId)
+    {
+        var rawStats = await _repo.GetDailyVisitStatsAsync(propertyId);
+        return rawStats.Select(stat => new VisitDailyStat
+        {
+            Date = stat.Date,
+            Count = stat.Count
+        }).ToList();
+    }
+
+    public async Task<List<VisitZoneStat>> GetZoneVisitStats(Guid propertyId)
+    {
+        var rawStats = await _repo.GetZoneVisitStatsAsync(propertyId);
+        return rawStats.Select(stat => new VisitZoneStat
+        {
+            City = stat.City,
+            Date = stat.Date,
+            Count = stat.Count
+        }).ToList();
+    }
+
+    public async Task<RecommendationCriteria?> GetRecommendationCriteriaAsync(Guid userId)
+    {
+        var visits = await _repo.GetVisitsByUserAsync(userId);
+
+        if (!visits.Any()) return null;
+
+        var topCity = visits
+            .GroupBy(v => v.City)
+            .OrderByDescending(g => g.Count())
+            .First().Key;
+
+        var topType = visits
+            .GroupBy(v => v.PropertyType)
+            .OrderByDescending(g => g.Count())
+            .First().Key;
+
+        var topTransaction = visits
+            .GroupBy(v => v.TransactionType)
+            .OrderByDescending(g => g.Count())
+            .First().Key;
+
+        return new RecommendationCriteria
+        {
+            City = topCity,
+            PropertyType = topType,
+            TransactionType = topTransaction
+        };
     }
 }

@@ -51,3 +51,4 @@
 /Users/pablotoledo/Desktop/FavoritesService/obj/Debug/net9.0/FavoritesService.pdb
 /Users/pablotoledo/Desktop/FavoritesService/obj/Debug/net9.0/FavoritesService.genruntimeconfig.cache
 /Users/pablotoledo/Desktop/FavoritesService/obj/Debug/net9.0/ref/FavoritesService.dll
+/Users/pablotoledo/Desktop/FavoritesService/obj/Debug/net9.0/FavoritesService.sourcelink.json

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FavoritesService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd349c0e8d57e84098d5b687856efc93eb197300")]
 [assembly: System.Reflection.AssemblyProductAttribute("FavoritesService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FavoritesService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
