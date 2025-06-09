@@ -1,30 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pablotoledo/Desktop/FavoritesService/FavoritesService.csproj": {}
+    "C:\\Users\\sabin\\Documents\\real-estate-microservice\\FavoritesService.csproj": {}
   },
   "projects": {
-    "/Users/pablotoledo/Desktop/FavoritesService/FavoritesService.csproj": {
+    "C:\\Users\\sabin\\Documents\\real-estate-microservice\\FavoritesService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pablotoledo/Desktop/FavoritesService/FavoritesService.csproj",
+        "projectUniqueName": "C:\\Users\\sabin\\Documents\\real-estate-microservice\\FavoritesService.csproj",
         "projectName": "FavoritesService",
-        "projectPath": "/Users/pablotoledo/Desktop/FavoritesService/FavoritesService.csproj",
-        "packagesPath": "/Users/pablotoledo/.nuget/packages/",
-        "outputPath": "/Users/pablotoledo/Desktop/FavoritesService/obj/",
+        "projectPath": "C:\\Users\\sabin\\Documents\\real-estate-microservice\\FavoritesService.csproj",
+        "packagesPath": "C:\\Users\\sabin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sabin\\Documents\\real-estate-microservice\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/pablotoledo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\sabin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -37,12 +44,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "CassandraCSharpDriver": {
               "target": "Package",
@@ -50,11 +56,11 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.5, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.5, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -88,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

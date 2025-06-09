@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace FavoritesService.Controllers;
 
 [ApiController]
-[Route("visits")]
+[Route("visit-history")]
 public class VisitController : ControllerBase
 {
     private readonly VisitLogic _logic;
