@@ -54,4 +54,15 @@ public class FavoritesRepository
 
         return result;
     }
+
+    public async Task RemoveFavoriteAsync(Guid userId, Guid propertyId)
+    {
+        var session = _sessionFactory.GetSession();
+        var stmt = session.Prepare(@"
+        DELETE FROM favorites_by_user WHERE id_user = ? AND id_property = ?
+    ");
+        var boundStmt = stmt.Bind(userId, propertyId);
+        await session.ExecuteAsync(boundStmt).ConfigureAwait(false);
+    }
+
 }

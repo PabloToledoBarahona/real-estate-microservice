@@ -28,4 +28,10 @@ public class FavoritesLogic
     {
         return await _repo.GetFavoritesByUserAsync(userId);
     }
+
+    public async Task RemoveFavoriteAsync(Guid userId, Guid propertyId)
+    {
+        await _repo.RemoveFavoriteAsync(userId, propertyId);
+    }
+
 }

@@ -42,4 +42,18 @@ public class FavoritesController : ControllerBase
         var result = await _logic.GetFavoritesAsync(userId);
         return Ok(result);
     }
+
+    [HttpDelete("{propertyId}")]
+    [Authorize]
+    public async Task<IActionResult> RemoveFavorite([FromRoute] Guid propertyId)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (string.IsNullOrEmpty(userIdClaim) || !Guid.TryParse(userIdClaim, out var userId))
+            return Unauthorized(new { message = "No se pudo identificar al usuario autenticado." });
+
+        await _logic.RemoveFavoriteAsync(userId, propertyId);
+        return Ok(new { message = "Propiedad eliminada de favoritos" });
+    }
+
 }
